@@ -15,6 +15,8 @@ import EditorDashboard from '../editor/Dashboard'
 import AdminInfo from '../Admin/AdminInfo'
 import UserInfo from '../Admin/UserInfo'
 import EditorInfo from '../Admin/EditorInfo'
+import ShowNotes from '../editor/showNotes'
+import AddNotes from '../editor/AddNotes'
 
 function Navbar() {
   return (
@@ -66,7 +68,6 @@ function Navbar() {
         path="/user"
         element={<UserDashboard />}
       >
-        <Route path="" />
         <Route
           path="*"
           element={<NotFound />}
@@ -78,7 +79,19 @@ function Navbar() {
         path="/editor"
         element={<EditorDashboard />}
       >
-        <Route path="" />
+        <Route
+          path="notes"
+          element={<ShowNotes />}
+        >
+          <Route
+            path="notes/addNote"
+            element={<AddNotes />}
+          />
+        </Route>
+        <Route
+          path="notes/addNote"
+          element={<AddNotes />}
+        />
         <Route
           path="*"
           element={<NotFound />}

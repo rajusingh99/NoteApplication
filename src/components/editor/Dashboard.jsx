@@ -27,7 +27,7 @@ const EditorDashboard = () => {
               <hr />
               <li>
                 <h3>
-                  <Link to="users">All Users</Link>
+                  <Link to="notes">All Notes</Link>
                 </h3>
               </li>
               <hr />
