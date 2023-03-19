@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Navbar from './components/Auth/PrivateRoutes'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Mahesh Sharma</h1>
+    <div className='App'>
+      <Navbar/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
