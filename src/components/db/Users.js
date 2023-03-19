@@ -325,6 +325,21 @@ export function readAllItems() {
   return serializedItems ? JSON.parse(serializedItems) : []
 }
 
+export function readAllAdmins() {
+  const items = readAllItems()
+  return items.filter((item) => item.role === 'admin')
+}
+
+export function readAllUsers() {
+  const items = readAllItems()
+  return items.filter((item) => item.role !== 'editor' && item.role !== 'admin')
+}
+
+export function readAllEditors() {
+  const items = readAllItems()
+  return items.filter((item) => item.role === 'editor')
+}
+
 export function saveItems(items) {
   const serializedItems = JSON.stringify(items)
   localStorage.setItem(STORAGE_KEY, serializedItems)

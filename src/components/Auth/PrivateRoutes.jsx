@@ -6,13 +6,15 @@ import Dashboard from '../Admin/Dashboard'
 import Login from './Login'
 import NotFound from './NotFound'
 import Logout from './Logout'
-import LocalStorageCRUD from '../Admin/UserInfo'
 
 // user
 import UserDashboard from '../Users/Dashboard'
 
 // editor
 import EditorDashboard from '../editor/Dashboard'
+import AdminInfo from '../Admin/AdminInfo'
+import UserInfo from '../Admin/UserInfo'
+import EditorInfo from '../Admin/EditorInfo'
 
 function Navbar() {
   return (
@@ -40,8 +42,19 @@ function Navbar() {
           path=""
           element={<Admin />}
         />
-        <Route path="users" element={<LocalStorageCRUD />} />
-        
+        <Route
+          path="admin"
+          element={<AdminInfo />}
+        />
+        <Route
+          path="users"
+          element={<UserInfo />}
+        />
+        <Route
+          path="editor"
+          element={<EditorInfo />}
+        />
+
         <Route
           path="*"
           element={<NotFound />}

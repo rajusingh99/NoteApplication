@@ -3,7 +3,7 @@
 - [x] The user is prompted to enter their username and password.
 - [x] The Note application verifies the user's credentials and checks their role (admin, editor, or regular user).
 - [x] Depending on the user's role, the application will direct them to the appropriate dashboard.
-- [ ] The admin dashboard allows the user to create new users, assign roles, and view user information.
+- [x] The admin dashboard allows the user to create new users, assign roles, and view user information.
 - [ ] The editor dashboard allows the user to create and edit notes, view notes created by other editors, and assign notes to regular users.
 - [ ] The regular user dashboard allows the user to view their own notes and notes assigned to them by editors.
 - [ ] From the dashboard, the user can navigate to different pages to create a new note or view existing notes.

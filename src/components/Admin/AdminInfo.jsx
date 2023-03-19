@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { generateAccessKey } from '../db/localUser'
-import { readAllItems, readAllUsers } from '../db/Users'
+import { readAllAdmins, readAllItems } from '../db/Users'
 
-const UserInfo = () => {
+const AdminInfo = () => {
   const [items, setItems] = useState([])
   const [formState, setFormState] = useState({
     id: '',
@@ -15,7 +15,8 @@ const UserInfo = () => {
   const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
-    const data = readAllUsers()
+    // const data = JSON.parse(localStorage.getItem('items'))
+      const data = readAllAdmins();
     if (data) {
       setItems(data)
     }
@@ -120,7 +121,7 @@ const UserInfo = () => {
 
   return (
     <div>
-      <h2>User Information</h2>
+      <h2>Admin Information</h2>
       <form>
         <div className="mb-3">
           <label
@@ -267,4 +268,4 @@ const UserInfo = () => {
   )
 }
 
-export default UserInfo
+export default AdminInfo

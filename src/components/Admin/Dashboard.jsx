@@ -14,7 +14,10 @@ const Dashboard = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-md-3 fixed-top h-auto">
+        <div
+          id="sidebar"
+          className="col-md-3"
+        >
           <h1 className="py-2">Admin Dashboard</h1>
           <hr />
           <nav>
