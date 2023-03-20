@@ -217,6 +217,8 @@ export const DATA = [
     name: 'Clementina DuBuque',
     username: 'Moriah.Stanton',
     email: 'Rey.Padberg@karina.biz',
+    password: 'user123',
+    role: 'user',
     address: {
       street: 'Kattie Turnpike',
       suite: 'Suite 198',
@@ -312,7 +314,7 @@ export const DATA = [
   },
 ]
 
-const STORAGE_KEY = 'user-data'
+const STORAGE_KEY = 'uses'
 
 if (!localStorage.getItem(STORAGE_KEY)) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify([]))

@@ -30,7 +30,8 @@ export function getUserRole() {
 
 export function getUserID() {
   const user = readAllItem()
-  return user.id - 1
+  // console.log(user.id)
+  return user.id
 }
 
 export function getUserAccessKey() {

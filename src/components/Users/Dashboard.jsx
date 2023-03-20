@@ -7,7 +7,7 @@ const UserDashboard = () => {
   useEffect(() => {
     const user = readAllItem()
     if (user.role !== 'user') {
-      navigate('/logout')
+      navigate('/')
     }
   })
 
@@ -28,30 +28,6 @@ const UserDashboard = () => {
               <li>
                 <h3>
                   <Link to="notes">All Notes</Link>
-                </h3>
-              </li>
-              <hr />
-              <li>
-                <h3>
-                  <Link to="user">user</Link>
-                </h3>
-              </li>
-              <hr />
-              <li>
-                <h3>
-                  <Link to="guides">Guides</Link>
-                </h3>
-              </li>
-              <hr />
-              <li>
-                <h3>
-                  <Link to="interns">Interns</Link>
-                </h3>
-              </li>
-              <hr />
-              <li>
-                <h3>
-                  <Link to="assign_intern">Assign Intern</Link>
                 </h3>
               </li>
               <hr />

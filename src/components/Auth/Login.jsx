@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { generateAccessKey, saveItems, readAllItem } from '../db/localUser'
 import { readAllItems } from '../db/Users'
 import { useNavigate } from 'react-router-dom'
@@ -18,6 +18,21 @@ function checkUsernameAndPassword(email, password) {
 }
 
 const Login = () => {
+  const [isLogin, setIsLogin] = React.useState(readAllItem())
+  const navigation = useNavigate()
+  // console.log(isLogin)
+
+  useEffect(() => {
+    if (isLogin) {
+      if (isLogin.role === 'admin') {
+        navigation('/admin')
+      } else if (isLogin.role === 'editor') {
+        navigation('/editor')
+      } else if (isLogin.role === 'user') {
+        navigation('/user')
+      }
+    }
+  }, [isLogin])
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const navigate = useNavigate()

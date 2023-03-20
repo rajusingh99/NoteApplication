@@ -19,15 +19,17 @@ export function saveNotes(notes) {
 }
 
 export function getNoteById(id) {
+  // console.log('getNoteById' + id)
   const notes = getNotes()
   // console.log(notes)
   for (let i = 0; i < notes.length; i++) {
     // console.log(notes[i])
     if (notes[i].id === undefined) {
-      // console.log('undefined')
+      console.log('undefined')
       continue
     }
-    if (notes[i].id.toString() === id.toString()) {
+    if (notes[i].id.toString() == id.toString()) {
+      // console.log(notes[i])
       return notes[i]
     }
   }
@@ -89,8 +91,11 @@ export function deleteNote(id) {
 
 export function getNotesByUser() {
   const userID = getUserID()
+  console.log(userID)
   const notes = getNotes()
-  const userNotes = notes.filter((note) => note.userID === userID)
+  console.log(notes)
+  const userNotes = notes.filter((note) => note.AssignedUsersID == userID)
+  console.log(userNotes)
   return userNotes
 }
 

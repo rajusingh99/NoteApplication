@@ -7,7 +7,7 @@ const Dashboard = () => {
   useEffect(() => {
     const user = readAllItem()
     if (user.role !== 'admin') {
-      navigate('/logout')
+      navigate('/')
     }
   })
 

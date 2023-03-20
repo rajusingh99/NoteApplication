@@ -7,7 +7,7 @@ const EditorDashboard = () => {
   useEffect(() => {
     const user = readAllItem()
     if (user.role !== 'editor') {
-      navigate('/logout')
+      navigate('/')
     }
   })
 

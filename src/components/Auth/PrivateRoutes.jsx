@@ -23,6 +23,8 @@ import DeleteAllNotes from '../Editor/DeleteAllNotes'
 import AssignRole from '../Admin/AssignRole'
 import ViewAllNotes from '../Admin/ViewAllNotes'
 import AssignToUser from '../Editor/AssignToUser'
+import ViewUserNotes from '../Users/ViewAllNotes'
+import ViewNotes from '../Users/ViewNotes'
 
 function Navbar() {
   return (
@@ -101,6 +103,14 @@ function Navbar() {
         element={<UserDashboard />}
       >
         <Route
+          path="notes"
+          element={<ViewUserNotes />}
+        />
+        <Route
+          path="notes/viewNote/:id"
+          element={<ViewNotes />}
+        />
+        <Route
           path="*"
           element={<NotFound />}
         />
@@ -131,7 +141,10 @@ function Navbar() {
           path="notes/deleteAllNotes"
           element={<DeleteAllNotes />}
         />
-        <Route path="assignUser" element={< AssignToUser />} />
+        <Route
+          path="assignUser"
+          element={<AssignToUser />}
+        />
         <Route
           path="*"
           element={<NotFound />}

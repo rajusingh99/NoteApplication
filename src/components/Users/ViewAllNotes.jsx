@@ -2,10 +2,12 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getNotesByUser } from '../db/Notes'
 
-const ShowNotes = () => {
+const ViewUserNotes = () => {
   const [notes, setNotes] = React.useState([])
   useEffect(() => {
+    console.log(getNotesByUser())
     const notes = getNotesByUser()
+    // console.log(notes)
     setNotes(notes)
   }, [])
 
@@ -13,19 +15,7 @@ const ShowNotes = () => {
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-12">
-          <h1 className="text-center">All Notes</h1>
-          <Link
-            className="btn btn-primary m-2"
-            to="addNote"
-          >
-            Add Notes
-          </Link>
-          <Link
-            className="btn btn-danger m-2"
-            to="deleteAllNotes"
-          >
-            Clear All Notes Created By You
-          </Link>
+          <h1 className="text-center">All Assign Notes</h1>
           <hr />
           <div className="container-fluid">
             <div className="row">
@@ -33,12 +23,11 @@ const ShowNotes = () => {
                 <table className="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">ID</th>
+                      <th scope="col">Notes ID</th>
                       <th scope="col">Title</th>
                       <th scope="col">Description</th>
                       <th scope="col">Updated Date</th>
-                      <th scope="col">Edit</th>
-                      <th scope="col">Delete</th>
+                      <th scope="col">View</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -51,17 +40,9 @@ const ShowNotes = () => {
                         <td>
                           <Link
                             className="btn btn-primary"
-                            to={`/editor/notes/editNote/${note.id}`}
+                            to={`/user/notes/viewNote/${note.id}`}
                           >
-                            Edit
-                          </Link>
-                        </td>
-                        <td>
-                          <Link
-                            className="btn btn-danger"
-                            to={`/editor/notes/deleteNote/${note.id}`}
-                          >
-                            Delete
+                            View
                           </Link>
                         </td>
                       </tr>
@@ -77,4 +58,4 @@ const ShowNotes = () => {
   )
 }
 
-export default ShowNotes
+export default ViewUserNotes
