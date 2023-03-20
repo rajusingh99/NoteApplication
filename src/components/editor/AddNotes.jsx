@@ -1,6 +1,7 @@
 import React from 'react'
 import { addNote } from '../db/Notes'
 import { Link, useNavigate } from 'react-router-dom'
+import { getUserRole } from '../db/localUser'
 
 const AddNote = () => {
   const [title, setTitle] = React.useState('')
@@ -15,7 +16,15 @@ const AddNote = () => {
     }
     console.log(note)
     addNote(note)
-    navigate('/editor/notes')
+    console.log('Note Added')
+    console.log(getUserRole)
+    if (getUserRole() === 'editor') {
+      navigate('/editor/notes')
+    } else if (getUserRole() === 'admin') {
+      navigate('/admin/ViewAllNotes')
+    } else {
+      navigate('/user')
+    }
   }
   return (
     <div className="container w-75">
@@ -63,7 +72,11 @@ const AddNote = () => {
                     Add Notes
                   </button>
                   <Link
-                    to="/editor/notes"
+                    to={
+                      getUserRole() === 'editor'
+                        ? '/editor/notes'
+                        : '/admin/ViewAllNotes'
+                    }
                     className="btn btn-danger btn-block mt-3 m-2"
                   >
                     Go Back to Notes

@@ -14,10 +14,8 @@ const Dashboard = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div
-          id="sidebar"
-          className="col-md-3"
-        >
+        {/* <div className=""> */}
+        <div className="col-md-3">
           <h1 className="py-2">Admin Dashboard</h1>
           <hr />
           <nav>
@@ -25,6 +23,12 @@ const Dashboard = () => {
               <li>
                 <h3>
                   <Link to="">Dashboard</Link>
+                </h3>
+              </li>
+              <hr />
+              <li>
+                <h3>
+                  <Link to="assignRole">Assign Role</Link>
                 </h3>
               </li>
               <hr />
@@ -48,7 +52,7 @@ const Dashboard = () => {
               <hr />
               <li>
                 <h3>
-                  <Link to="viewNotes">View Notes</Link>
+                  <Link to="viewAllNotes">View All Notes</Link>
                 </h3>
               </li>
               <hr />
@@ -61,6 +65,7 @@ const Dashboard = () => {
             </ul>
           </nav>
         </div>
+        {/* </div> */}
         <div className="col-md-9">
           <Outlet />
         </div>

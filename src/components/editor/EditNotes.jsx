@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { deleteNote, getNoteById } from '../db/Notes'
 import { Link, useNavigate } from 'react-router-dom'
 import { updateNote } from '../db/Notes'
+import { getUserRole } from '../db/localUser'
 
 const EditNote = () => {
   const [title, editTitle] = React.useState('')
@@ -78,7 +79,11 @@ const EditNote = () => {
                     Update Notes
                   </button>
                   <Link
-                    to="/editor/notes"
+                    to={
+                      getUserRole() === 'editor'
+                        ? '/editor/notes'
+                        : '/admin/ViewAllNotes'
+                    }
                     className="btn btn-primary btn-block mt-3 m-2"
                   >
                     Go Back to Notes

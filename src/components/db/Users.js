@@ -373,3 +373,14 @@ export function updateItem(item) {
   items[index] = item
   saveItems(items)
 }
+
+
+export function getUserNameById(id) {
+  if (id === 0 || id === undefined) {
+    return 'Guest'
+  }
+  console.log(id)
+  const items = readAllItems()
+  console.log(items[id])
+  return items[id].name
+}

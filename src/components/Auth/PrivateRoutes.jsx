@@ -20,6 +20,8 @@ import AddNotes from '../Editor/AddNotes'
 import EditNote from '../Editor/EditNotes'
 import DeleteNote from '../Editor/DeleteNotes'
 import DeleteAllNotes from '../Editor/DeleteAllNotes'
+import AssignRole from '../Admin/AssignRole'
+import ViewAllNotes from '../Admin/ViewAllNotes'
 
 function Navbar() {
   return (
@@ -59,6 +61,32 @@ function Navbar() {
           path="editor"
           element={<EditorInfo />}
         />
+        <Route
+          path="assignRole"
+          element={<AssignRole />}
+        />
+
+        <Route
+          path="ViewAllNotes"
+          element={<ViewAllNotes />}
+        />
+
+        <Route
+          path="ViewAllNotes/addNote"
+          element={<AddNotes />}
+        />
+        <Route
+          path="ViewAllNotes/editNote/:id"
+          element={<EditNote />}
+        />
+        <Route
+          path="ViewAllNotes/deleteNote/:id"
+          element={<DeleteNote />}
+        />
+        <Route
+          path="ViewAllNotes/deleteAllNotes"
+          element={<DeleteAllNotes />}
+        />
 
         <Route
           path="*"
@@ -86,11 +114,6 @@ function Navbar() {
           path="notes"
           element={<ShowNotes />}
         />
-        <Route
-          path="notes/addNote"
-          element={<AddNotes />}
-        />
-
         <Route
           path="notes/addNote"
           element={<AddNotes />}

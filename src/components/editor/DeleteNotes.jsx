@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { deleteNote, getNoteById } from '../db/Notes'
 import { Link, useNavigate } from 'react-router-dom'
 import { updateNote } from '../db/Notes'
+import { getUserRole } from '../db/localUser'
 
 const DeleteNote = () => {
   const [title, editTitle] = React.useState('')
@@ -25,7 +26,13 @@ const DeleteNote = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     deleteNote(id)
-    navigate('/editor/notes')
+    if (getUserRole() === 'editor') {
+      navigate('/editor/notes')
+    } else if (getUserRole() === 'admin') {
+      navigate('/admin/ViewAllNotes')
+    } else {
+      navigate('/user')
+    }
   }
   return (
     <div className="container w-75">
@@ -74,7 +81,11 @@ const DeleteNote = () => {
                     Delete Permanently this Note
                   </button>
                   <Link
-                    to="/editor/notes"
+                    to={
+                      getUserRole() === 'editor'
+                        ? '/editor/notes'
+                        : '/admin/ViewAllNotes'
+                    }
                     className="btn btn-primary btn-block mt-3 m-2"
                   >
                     Go Back to Notes

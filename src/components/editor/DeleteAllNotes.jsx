@@ -1,11 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { deleteAllNotesByUser } from '../db/Notes'
+import { getUserRole } from '../db/localUser'
+import { clearAllNotes, deleteAllNotesByUser } from '../db/Notes'
+import { useNavigate } from 'react-router-dom'
 
 const DeleteAllNotes = () => {
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
-    deleteAllNotesByUser()
+    if (getUserRole() === 'editor') {
+      deleteAllNotesByUser()
+      navigate('/editor/notes')
+    } else if (getUserRole() === 'admin') {
+      clearAllNotes()
+      navigate('/admin/ViewAllNotes')
+    } else {
+      deleteAllNotesByUser()
+      navigate('/user')
+    }
   }
   return (
     <div className="container w-75 py-5 my-5">
@@ -24,7 +36,11 @@ const DeleteAllNotes = () => {
                     Are you sure You want to delete All Notes
                   </button>
                   <Link
-                    to="/editor/notes"
+                    to={
+                      getUserRole() === 'editor'
+                        ? '/editor/notes'
+                        : '/admin/ViewAllNotes'
+                    }
                     className="btn btn-primary btn-block mt-3 m-2"
                   >
                     Go Back to Notes

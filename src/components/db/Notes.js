@@ -81,12 +81,14 @@ export function updateNote(id, note) {
 
 export function deleteNote(id) {
   const notes = getNotes()
-  const index = notes.findIndex((note) => note.id === id)
-  notes.splice(index, 1)
+  const index = notes.findIndex((note) => note.id == id)
+  console.log(index)
+  notes.splice(parseInt(index), 1)
   saveNotes(notes)
 }
 
-export function getNotesByUser(userID) {
+export function getNotesByUser() {
+  const userID = getUserID()
   const notes = getNotes()
   const userNotes = notes.filter((note) => note.userID === userID)
   return userNotes
@@ -115,4 +117,8 @@ export function deleteAllNotesByUser() {
   const notes = getNotes()
   const userNotes = notes.filter((note) => note.userID !== userId)
   saveNotes(userNotes)
+}
+
+export function clearAllNotes() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify([]))
 }
