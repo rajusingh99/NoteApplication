@@ -28,6 +28,11 @@ export function getUserRole() {
   return user.role
 }
 
+export function getUserID() {
+  const user = readAllItem()
+  return user.id
+}
+
 export function getUserAccessKey() {
   const user = readAllItem()
   return user.access_key

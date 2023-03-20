@@ -11,12 +11,15 @@ import Logout from './Logout'
 import UserDashboard from '../Users/Dashboard'
 
 // editor
-import EditorDashboard from '../editor/Dashboard'
+import EditorDashboard from '../Editor/Dashboard'
 import AdminInfo from '../Admin/AdminInfo'
 import UserInfo from '../Admin/UserInfo'
 import EditorInfo from '../Admin/EditorInfo'
-import ShowNotes from '../editor/showNotes'
-import AddNotes from '../editor/AddNotes'
+import ShowNotes from '../Editor/ShowNotes'
+import AddNotes from '../Editor/AddNotes'
+import EditNote from '../Editor/EditNotes'
+import DeleteNote from '../Editor/DeleteNotes'
+import DeleteAllNotes from '../Editor/DeleteAllNotes'
 
 function Navbar() {
   return (
@@ -82,15 +85,27 @@ function Navbar() {
         <Route
           path="notes"
           element={<ShowNotes />}
-        >
-          <Route
-            path="notes/addNote"
-            element={<AddNotes />}
-          />
-        </Route>
+        />
         <Route
           path="notes/addNote"
           element={<AddNotes />}
+        />
+
+        <Route
+          path="notes/addNote"
+          element={<AddNotes />}
+        />
+        <Route
+          path="notes/editNote/:id"
+          element={<EditNote />}
+        />
+        <Route
+          path="notes/deleteNote/:id"
+          element={<DeleteNote />}
+        />
+        <Route
+          path="notes/deleteAllNotes"
+          element={<DeleteAllNotes />}
         />
         <Route
           path="*"

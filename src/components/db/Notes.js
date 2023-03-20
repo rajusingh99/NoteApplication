@@ -1,3 +1,4 @@
+import { getUserID } from './localUser'
 export function generateAccessKey() {
   return Math.floor(Math.random() * 900000)
 }
@@ -19,24 +20,63 @@ export function saveNotes(notes) {
 
 export function getNoteById(id) {
   const notes = getNotes()
-  const note = notes.find((note) => note.id === id)
-  return note
+  // console.log(notes)
+  for (let i = 0; i < notes.length; i++) {
+    // console.log(notes[i])
+    if (notes[i].id === undefined) {
+      // console.log('undefined')
+      continue
+    }
+    if (notes[i].id.toString() === id.toString()) {
+      return notes[i]
+    }
+  }
+  return null
 }
 
 export function addNote(note) {
   const notes = getNotes()
-  const date = new Date()
-  note.date = date.getTime()
+  note.date = getCurrentDateTimeString()
   note.id = generateAccessKey()
+  note.userID = getUserID()
+  // console.log(note)
   notes.push(note)
   saveNotes(notes)
 }
 
-export function updateNote(updatedNote) {
+function getCurrentDateTimeString() {
+  const now = new Date()
+  const year = now.getFullYear()
+  const month = String(now.getMonth() + 1).padStart(2, '0')
+  const day = String(now.getDate()).padStart(2, '0')
+  const hours = String(now.getHours()).padStart(2, '0')
+  const minutes = String(now.getMinutes()).padStart(2, '0')
+  const seconds = String(now.getSeconds()).padStart(2, '0')
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+}
+
+export function updateNote(id, note) {
+  // console.log('updateNote' + id + note.title + note.description)
+  if (id === undefined) {
+    // console.log('undefined')
+    return null
+  }
   const notes = getNotes()
-  const index = notes.findIndex((note) => note.id === updatedNote.id)
-  notes[index] = updatedNote
-  saveNotes(notes)
+  for (let i = 0; i < notes.length; i++) {
+    if (notes[i].id === undefined) {
+      console.log('undefined')
+      continue
+    }
+    if (notes[i].id.toString() === id.toString()) {
+      note.id = id
+      note.date = getCurrentDateTimeString()
+      note.userID = getUserID()
+      notes[i] = note
+      // console.log(notes)
+      saveNotes(notes)
+      // return notes[i]
+    }
+  }
 }
 
 export function deleteNote(id) {
@@ -68,4 +108,11 @@ export function getNotesByEditor(editorID) {
   const notes = getNotes()
   const userNotes = notes.filter((note) => note.editorID === editorID)
   return userNotes
+}
+
+export function deleteAllNotesByUser() {
+  const userId = getUserID()
+  const notes = getNotes()
+  const userNotes = notes.filter((note) => note.userID !== userId)
+  saveNotes(userNotes)
 }
