@@ -122,3 +122,20 @@ export function deleteAllNotesByUser() {
 export function clearAllNotes() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify([]))
 }
+
+export function assignNotesToUser(noteId, userId) {
+  const notes = getNotes()
+  console.log(noteId + ' ' + userId)
+  for (let i = 0; i < notes.length; i++) {
+    if (notes[i].id === undefined) {
+      console.log('undefined')
+      continue
+    }
+    if (notes[i].id == noteId) {
+      notes[i].AssignedUsersID = userId
+      notes[i].date = getCurrentDateTimeString()
+      console.log(notes[i])
+      saveNotes(notes)
+    }
+  }
+}

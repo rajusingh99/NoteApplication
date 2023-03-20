@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom'
 function checkUsernameAndPassword(email, password) {
   const userData = readAllItems()
   for (let i = 0; i < userData.length; i++) {
-    console.log(userData[i].email)
-    console.log(userData[i].password)
+    // console.log(userData[i].email)
+    // console.log(userData[i].password)
     if (userData[i].email === email && userData[i].password === password) {
       let user = userData[i]
       saveItems(user)

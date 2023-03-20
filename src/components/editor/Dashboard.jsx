@@ -33,25 +33,7 @@ const EditorDashboard = () => {
               <hr />
               <li>
                 <h3>
-                  <Link to="Editor">Editor</Link>
-                </h3>
-              </li>
-              <hr />
-              <li>
-                <h3>
-                  <Link to="guides">Guides</Link>
-                </h3>
-              </li>
-              <hr />
-              <li>
-                <h3>
-                  <Link to="interns">Interns</Link>
-                </h3>
-              </li>
-              <hr />
-              <li>
-                <h3>
-                  <Link to="assign_intern">Assign Intern</Link>
+                  <Link to="assignUser">Assign to User</Link>
                 </h3>
               </li>
               <hr />
