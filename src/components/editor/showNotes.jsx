@@ -6,6 +6,7 @@ const ShowNotes = () => {
   const [notes, setNotes] = React.useState([])
   useEffect(() => {
     const notes = getNotesByUser()
+    console.log('--------------->', notes)
     setNotes(notes)
   }, [])
 

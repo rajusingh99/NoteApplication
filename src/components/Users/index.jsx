@@ -1,8 +1,8 @@
 import React from 'react'
-import { getNotes } from '../db/Notes'
+import { getNotes, getNotesBySimpleUser, getNotesByUser } from '../db/Notes'
 import { readAllItems, readAllUsers } from '../db/Users'
 
-const Admin = () => {
+const Users = () => {
   const allUsers = readAllItems()
   // console.log(allUsers)
   const admin = allUsers.filter((user) => user.role === 'admin')
@@ -11,7 +11,7 @@ const Admin = () => {
   // console.log(editor)
   const user = allUsers.filter((user) => user.role === 'user')
   // console.log(user)
-  const allNotes = getNotes()
+  const allNotes = getNotesBySimpleUser()
   console.log(allNotes)
   return (
     <>
@@ -88,4 +88,4 @@ const Admin = () => {
   )
 }
 
-export default Admin
+export default Users

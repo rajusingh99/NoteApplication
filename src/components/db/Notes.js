@@ -94,6 +94,15 @@ export function getNotesByUser() {
   console.log(userID)
   const notes = getNotes()
   console.log(notes)
+  const userNotes = notes.filter((note) => note.userID === userID)
+  console.log(userNotes)
+  return userNotes
+}
+export function getNotesBySimpleUser() {
+  const userID = getUserID()
+  console.log(userID)
+  const notes = getNotes()
+  console.log(notes)
   const userNotes = notes.filter((note) => note.AssignedUsersID == userID)
   console.log(userNotes)
   return userNotes

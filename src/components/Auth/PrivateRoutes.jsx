@@ -25,6 +25,8 @@ import ViewAllNotes from '../Admin/ViewAllNotes'
 import AssignToUser from '../Editor/AssignToUser'
 import ViewUserNotes from '../Users/ViewAllNotes'
 import ViewNotes from '../Users/ViewNotes'
+import Editor from '../Editor'
+import Users from '../Users'
 
 function Navbar() {
   return (
@@ -103,6 +105,10 @@ function Navbar() {
         element={<UserDashboard />}
       >
         <Route
+          path=""
+          element={< Users />}
+        />
+        <Route
           path="notes"
           element={<ViewUserNotes />}
         />
@@ -121,6 +127,10 @@ function Navbar() {
         path="/editor"
         element={<EditorDashboard />}
       >
+        <Route
+          path=""
+          element={<Editor />}
+        />
         <Route
           path="notes"
           element={<ShowNotes />}

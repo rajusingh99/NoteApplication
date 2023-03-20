@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getNotesByUser } from '../db/Notes'
+import { getNotesBySimpleUser } from '../db/Notes'
 
 const ViewUserNotes = () => {
   const [notes, setNotes] = React.useState([])
   useEffect(() => {
-    console.log(getNotesByUser())
-    const notes = getNotesByUser()
+    console.log(getNotesBySimpleUser())
+    const notes = getNotesBySimpleUser()
     // console.log(notes)
     setNotes(notes)
   }, [])
