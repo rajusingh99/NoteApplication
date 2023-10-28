@@ -32,73 +32,23 @@ function Navbar() {
   return (
     // simple login logout and not found page
     <Routes>
-      <Route
-        path="/"
-        element={<Login />}
-      />
-      <Route
-        path="/logout"
-        element={<Logout />}
-      />
-      <Route
-        path="*"
-        element={<NotFound />}
-      />
-
+      <Route path="/" element={<Login />}/>
+      <Route path="/logout" element={<Logout />}/>
+      <Route path="*" element={<NotFound />}/>
       {/* admin */}
-      <Route
-        path="/admin"
-        element={<Dashboard />}
-      >
-        <Route
-          path=""
-          element={<Admin />}
-        />
-        <Route
-          path="admin"
-          element={<AdminInfo />}
-        />
-        <Route
-          path="users"
-          element={<UserInfo />}
-        />
-        <Route
-          path="editor"
-          element={<EditorInfo />}
-        />
-        <Route
-          path="assignRole"
-          element={<AssignRole />}
-        />
-
-        <Route
-          path="ViewAllNotes"
-          element={<ViewAllNotes />}
-        />
-
-        <Route
-          path="ViewAllNotes/addNote"
-          element={<AddNotes />}
-        />
-        <Route
-          path="ViewAllNotes/editNote/:id"
-          element={<EditNote />}
-        />
-        <Route
-          path="ViewAllNotes/deleteNote/:id"
-          element={<DeleteNote />}
-        />
-        <Route
-          path="ViewAllNotes/deleteAllNotes"
-          element={<DeleteAllNotes />}
-        />
-
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
+      <Route path="/admin" element={<Dashboard />}>
+        <Route path="" element={<Admin />}/>
+        <Route path="admin" element={<AdminInfo />}/>
+        <Route  path="users"  element={<UserInfo />}/>
+        <Route  path="editor"  element={<EditorInfo />}/>
+        <Route path="assignRole" element={<AssignRole />}/>
+        <Route path="ViewAllNotes"  element={<ViewAllNotes /> }/>
+        <Route path="ViewAllNotes/addNote" element={<AddNotes />}/>
+        <Route  path="ViewAllNotes/editNote/:id"  element={<EditNote />}/>
+        <Route path="ViewAllNotes/deleteNote/:id" element={<DeleteNote />} />
+        <Route path="ViewAllNotes/deleteAllNotes" element={<DeleteAllNotes />}/>
+        <Route path="*"element={<NotFound />} />
       </Route>
-
       {/* user */}
       <Route
         path="/user"

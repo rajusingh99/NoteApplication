@@ -9,11 +9,11 @@
 - [x] From the dashboard, the user can navigate to different pages to create a new note or view existing notes.
 - [x] When the user creates a new note, they are prompted to enter a title and add content.
 - [x] Once the note is created, it is stored in the application's database and can be accessed later by the user who created it or assigned to other users based on their role.
-- [ ] If the user attempts to access a page or perform an action that is not authorized for their role, the application will display an error message.
+- [x] If the user attempts to access a page or perform an action that is not authorized for their role, the application will display an error message.
 - [x] The user can log out of the application at any time, which will direct them back to the login page.
-- [ ] Error Boundary, useReducer, useContext must be used inside the application.
+- [x] Error Boundary, useReducer, useContext must be used inside the application.
 - [x] There are should be loaders displayed in the application if data is not ready to render.
-- [ ] There should be dark/light mode.
+- [x] There should be dark/light mode.
 - [x] For user data you can refer to JSONplaceholder. storing and organization of the data inside the application is up to you.
 - [x] **Bonus** : Please use firebase real time database for storing the information.
 

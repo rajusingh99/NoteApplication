@@ -28,7 +28,7 @@ export function getNoteById(id) {
       console.log('undefined')
       continue
     }
-    if (notes[i].id.toString() == id.toString()) {
+    if (notes[i].id.toString() === id.toString()) {
       // console.log(notes[i])
       return notes[i]
     }
@@ -83,7 +83,7 @@ export function updateNote(id, note) {
 
 export function deleteNote(id) {
   const notes = getNotes()
-  const index = notes.findIndex((note) => note.id == id)
+  const index = notes.findIndex((note) => note.id === id)
   console.log(index)
   notes.splice(parseInt(index), 1)
   saveNotes(notes)
@@ -103,7 +103,7 @@ export function getNotesBySimpleUser() {
   console.log(userID)
   const notes = getNotes()
   console.log(notes)
-  const userNotes = notes.filter((note) => note.AssignedUsersID == userID)
+  const userNotes = notes.filter((note) => note.AssignedUsersID === userID)
   console.log(userNotes)
   return userNotes
 }
@@ -145,7 +145,7 @@ export function assignNotesToUser(noteId, userId) {
       console.log('undefined')
       continue
     }
-    if (notes[i].id == noteId) {
+    if (notes[i].id === noteId) {
       notes[i].AssignedUsersID = userId
       notes[i].date = getCurrentDateTimeString()
       console.log(notes[i])
